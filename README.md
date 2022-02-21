@@ -1,7 +1,10 @@
-A (work in progress) async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.iapetus11.me)
+#Note: this library is still in development and cannot be used in it's current stage!
+
+
+An async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.iapetus11.me)
 
 ### <u>Example</u>
-###### Getting info on a Minecraft Server.
+##### Getting info on a Minecraft Server.
 
 ```py
 import asyncio
@@ -19,13 +22,14 @@ async def main(ip_address: str)
 asyncio.run(main("mc.hypixel.net"))
 ```
 
-###### Getting a custom achievement image.
+##### Getting a custom achievement image.
 
 ```py
 import asyncio
 import mcutility
 
 client = mcutility.MCStatus()
+
 async def main(achievement: str)
   image = await client.achievement(achievement)
   print(await image.getvalue())
@@ -33,7 +37,22 @@ async def main(achievement: str)
 asyncio.run(main("Mom, get the camera!!!"))
 ```
 
-###### Or if you plan to use it in a discord bot
+##### Getting a custom splash text image.
+
+```py
+import asyncio
+import mcutility
+
+client = mcutility.MCStatus()
+
+async def main(text: str)
+  image = await client.splash_text(text)
+  print(await image.getvalue())
+
+asyncio.run(main("Also check out terarria"))
+```
+
+##### Or if you plan to use it in a discord bot
 
 ```py
 import discord
@@ -48,3 +67,5 @@ async def achievement(achievement: str)
   file = discord.File(image, "achievement.png")
   await ctx.send(file=file)
 ```
+
+###### these are just examples! it's upto you how you want to use this lib.
