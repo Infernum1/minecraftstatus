@@ -42,6 +42,7 @@ class MCStatus(HTTPClient):
         resp = await self.request(
             "GET", base_url.format(f"mc/server/status/{ip_address}")
         )
+        resp = resp.json()
         return ServerStatus(resp)
 
     async def get_server_card(self, ip_address: str):

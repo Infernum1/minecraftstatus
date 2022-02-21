@@ -1,5 +1,3 @@
-from typing import Any
-
 __all__ = (
     "ServerStatus",
     "ServerImage",
@@ -8,7 +6,7 @@ __all__ = (
 
 
 class ServerStatus:
-    def __init__(self, resp) -> None:
+    def __init__(self, resp):
         self.resp = resp
 
     @property
@@ -72,7 +70,7 @@ class ServerStatus:
         return self.resp["favicon"]
 
     @property
-    def version_info(self) -> dict[Any, Any]:
+    def version_info(self) -> dict:
         """
         Returns the version info of the server.
         Returns
