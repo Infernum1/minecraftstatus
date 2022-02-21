@@ -9,7 +9,7 @@ import mcutility
 
 client = mcutility.MCStatus()
 async def main(ip_address: str)
-  server = await client.get_status(ip_address)
+  server = await client.get_server(ip_address)
   print(server.motd)
   print(server.players_online)
   print(server.max_players)
