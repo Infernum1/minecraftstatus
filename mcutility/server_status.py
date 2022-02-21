@@ -1,8 +1,14 @@
 from typing import Any
-from .client import MCStatus
 
-class ServerStatus(MCStatus):
-    def __init__(self, resp: str) -> None:
+__all__ = (
+    "ServerStatus",
+    "ServerImage",
+    "Achievement",
+)
+
+
+class ServerStatus:
+    def __init__(self, resp) -> None:
         self.resp = resp
 
     @property
@@ -54,7 +60,7 @@ class ServerStatus(MCStatus):
         int or None
         """
         return self.resp["max_players"]
-    
+
     @property
     def favicon(self) -> str:
         """
@@ -64,7 +70,7 @@ class ServerStatus(MCStatus):
         str or None
         """
         return self.resp["favicon"]
-        
+
     @property
     def version_info(self) -> dict[Any, Any]:
         """
@@ -104,7 +110,7 @@ class ServerStatus(MCStatus):
         str or None
         """
         return self.resp["motd_clean"]
-    
+
     @property
     def motd(self) -> str:
         """
@@ -114,7 +120,7 @@ class ServerStatus(MCStatus):
         str or None
         """
         return self.resp["motd"]
-    
+
     @property
     def gamemode(self) -> str:
         """
@@ -124,7 +130,7 @@ class ServerStatus(MCStatus):
         str or None
         """
         return self.resp["gamemode"]
-    
+
     @property
     def game_map(self) -> str:
         """
