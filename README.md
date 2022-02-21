@@ -42,7 +42,7 @@ async def main(achievement: str)
 asyncio.run(main("Mom, get the camera!!!"))
 ```
 
-##### Or if you plan to use it in a discord bot
+###### Or if you plan to use it in a discord bot
 
 ```py
 import discord
