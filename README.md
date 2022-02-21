@@ -1,7 +1,5 @@
 A (work in progress) async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.iapetus11.me)
 
-
-and that's it!
 ### <u>Example</u>
 ###### Getting info on a Minecraft Server.
 
