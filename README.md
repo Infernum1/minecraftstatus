@@ -1,12 +1,5 @@
-An async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.iapetus11.me)
+A (work in progress) async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.iapetus11.me)
 
-### Get started
-
-##### To get started, open terminal and type 
-
-```py
-pip install mcutility
-```
 
 and that's it!
 ### <u>Example</u>
