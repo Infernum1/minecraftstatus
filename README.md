@@ -19,7 +19,8 @@ async def main(ip_address: str)
   print(server.max_players)
   print(server.version) # and many more attributes!
 
-asyncio.run(main("mc.hypixel.net"))
+if __name__ == "__main__":
+    asyncio.run(main("mc.hypixel.net"))
 ```
 
 ##### Getting a custom achievement image.
@@ -34,7 +35,8 @@ async def main(achievement: str)
   image = await client.achievement(achievement)
   print(await image.getvalue())
 
-asyncio.run(main("Mom, get the camera!!!"))
+if __name__ == "__main__":
+    asyncio.run(main("Mom, get the camera!!!"))
 ```
 
 ##### Getting a custom splash text image.
@@ -49,7 +51,8 @@ async def main(text: str)
   image = await client.splash_text(text)
   print(await image.getvalue())
 
-asyncio.run(main("Also check out terarria"))
+if __name__ == "__main__":
+    asyncio.run(main("Also check out terarria"))
 ```
 
 ##### Or if you plan to use it in a discord bot
