@@ -16,3 +16,7 @@ class HTTPClient:
         except KeyError:
             return await resp
         return await resp
+
+    async def close(self):
+        if self.session:
+            return await self.session.close()
