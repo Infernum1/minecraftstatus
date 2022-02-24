@@ -69,10 +69,10 @@ class MCStatus(HTTPClient):
     async def achievement(self, achievement: str):
         """
         Makes a request to the achievement endpoint.
-        
         Parameters
         ----------
         achievement: :class:`str` name of the achievement to display.
+
         Returns
         -------
         io.BytesIO object co-relating the achievement image.
@@ -87,7 +87,6 @@ class MCStatus(HTTPClient):
     async def splash_text(self, text: str):
         """
         Makes a request to the splash text endpoint.
-        
         Parameters
         ----------
         text: :class:`str` text to display in the splash.
