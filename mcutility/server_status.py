@@ -2,8 +2,6 @@ from io import BytesIO
 
 __all__ = (
     "ServerStatus",
-    "ServerImage",
-    "Achievement",
 )
 
 
