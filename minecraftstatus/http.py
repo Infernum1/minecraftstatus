@@ -20,4 +20,4 @@ class HTTPClient:
 
     async def _close(self):
         if self.session:
-            self.session.close()
+            await self.session.close()
