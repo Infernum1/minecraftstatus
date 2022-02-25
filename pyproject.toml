@@ -4,6 +4,8 @@ version = "0.0.4"
 description = "minecraftstatus is an asynchronous wrapper for https://api.iapetus11.me."
 authors = ["Infernum1"]
 license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Infernum1/minecraftstatus"
 
 [tool.poetry.dependencies]
 python = ">3.6"
