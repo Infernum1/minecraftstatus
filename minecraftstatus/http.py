@@ -12,6 +12,8 @@ class HTTPClient:
 
     async def request(self, method: str, endpoint: str) -> dict:
         self.session = ClientSession()
-        resp = await self.session.request(method, endpoint)
-        await self.session.close()
+        try:
+            resp = await self.session.request(method, endpoint)
+        except KeyError:
+            return resp
         return resp
