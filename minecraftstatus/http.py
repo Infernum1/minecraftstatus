@@ -15,5 +15,7 @@ class HTTPClient:
         try:
             resp = await self.session.request(method, endpoint)
         except KeyError:
+            await self.session.close()
             return resp
+        await self.session.close()
         return resp
