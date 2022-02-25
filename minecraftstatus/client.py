@@ -42,10 +42,11 @@ class MCStatus(HTTPClient):
         game_mode: The game mode of the server.
         """
 
-        resp = await self.request(
+        resp = await self._request(
             "GET", base_url.format(f"mc/server/status/{ip_address}")
         )
         resp = await resp.json()
+        await self._close()
         return ServerStatus(resp)
 
     async def get_server_card(self, ip_address: str):
@@ -60,10 +61,11 @@ class MCStatus(HTTPClient):
         io.BytesIO object co-relating the server card.
         """
 
-        res = await self.image_request(
+        res = await self._request(
             "GET", base_url.format(f"mc/server/status/{ip_address}/image")
         )
         image = BytesIO(await res.read())
+        self._close()
         return image
 
     async def achievement(self, achievement: str):
@@ -78,10 +80,11 @@ class MCStatus(HTTPClient):
         io.BytesIO object co-relating the achievement image.
         """
 
-        res = await self.request(
+        res = await self._request(
             "GET", base_url.format(f"mc/image/achievement/{achievement}")
         )
         image = BytesIO(await res.read())
+        self._close()
         return image
 
     async def splash_text(self, text: str):
@@ -96,6 +99,7 @@ class MCStatus(HTTPClient):
         io.BytesIO object co-relating the splash image.
         """
 
-        res = await self.request("GET", base_url.format(f"mc/image/splash/{text}"))
+        res = await self._request("GET", base_url.format(f"mc/image/splash/{text}"))
         image = BytesIO(await res.read())
+        self._close()
         return image
