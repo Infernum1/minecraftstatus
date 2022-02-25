@@ -14,4 +14,4 @@ class HTTPClient:
         self.session = ClientSession()
         resp = await self.session.request(method, endpoint)
         await self.session.close()
-        return await resp
+        return resp
