@@ -1,4 +1,5 @@
 from aiohttp import ClientSession
+import aiohttp
 
 
 
@@ -10,13 +11,6 @@ class HTTPClient:
         self.session = None
 
     async def request(self, method: str, endpoint: str) -> dict:
-        self.session = ClientSession()
-        try:
-            resp = await self.session.request(method, endpoint)
-        except KeyError:
-            return resp
-        return resp
-
-    async def close(self):
-        if self.session:
-            return await self.session.close()
+        async with aiohttp.ClientSession() as self.session:
+            async with self.session.request(method, endpoint) as resp:
+                return resp
