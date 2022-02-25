@@ -12,7 +12,7 @@ import minecraftstatus
 
 client = minecraftstatus.MCStatus()
 
-async def main(ip_address: str)
+async def main(ip_address: str):
   server = await client.get_server(ip_address)
   print(server.motd)
   print(server.players_online)
@@ -31,7 +31,7 @@ import minecraftstatus
 
 client = mminecraftstatus.MCStatus()
 
-async def main(achievement: str)
+async def main(achievement: str):
   image = await client.achievement(achievement)
   print(await image.getvalue())
 
@@ -47,7 +47,7 @@ import minecraftstatus
 
 client = minecraftstatus.MCStatus()
 
-async def main(text: str)
+async def main(text: str):
   image = await client.splash_text(text)
   print(await image.getvalue())
 
@@ -65,7 +65,7 @@ client = minecraftstatus.MCStatus()
 bot = discord.ext.commands.Bot()
 
 @bot.command()
-async def achievement(achievement: str)
+async def achievement(achievement: str):
   image = await client.achievement(achievement)
   file = discord.File(image, "achievement.png")
   await ctx.send(file=file)

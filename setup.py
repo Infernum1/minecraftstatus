@@ -8,13 +8,13 @@ with open('README.md') as f:
 setup(
     name='minecraftstatus',
     author='Infernum1',
-    url='https://github.com/Infernum1/MCUtility/',
+    url='https://github.com/Infernum1/minecraftstatus/',
     project_urls={
-        "Issue Tracker": "https://github.com/Infernum1/MCUtility/issues",
+        "Issue Tracker": "https://github.com/Infernum1/minecraftstatus/issues",
     },
-    version="0.0.1",
+    version="0.0.2",
     license='MIT',
-    description='MCUtility is an asynchronous wrapper for https://api.iapetus11.me.',
+    description='minecraftstatus is an asynchronous wrapper for https://api.iapetus11.me.',
     long_description=readme,
     long_description_content_type='text/markdown',
     packages=find_packages(),
