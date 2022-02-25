@@ -8,9 +8,9 @@ An async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.i
 
 ```py
 import asyncio
-import mcutility
+import minecraftstatus
 
-client = mcutility.MCStatus()
+client = minecraftstatus.MCStatus()
 
 async def main(ip_address: str)
   server = await client.get_server(ip_address)
@@ -27,9 +27,9 @@ if __name__ == "__main__":
 
 ```py
 import asyncio
-import mcutility
+import minecraftstatus
 
-client = mcutility.MCStatus()
+client = mminecraftstatus.MCStatus()
 
 async def main(achievement: str)
   image = await client.achievement(achievement)
@@ -43,9 +43,9 @@ if __name__ == "__main__":
 
 ```py
 import asyncio
-import mcutility
+import minecraftstatus
 
-client = mcutility.MCStatus()
+client = minecraftstatus.MCStatus()
 
 async def main(text: str)
   image = await client.splash_text(text)
@@ -59,9 +59,9 @@ if __name__ == "__main__":
 
 ```py
 import discord
-import mcutility
+import minecraftstatus
 
-client = mcutility.MCStatus()
+client = minecraftstatus.MCStatus()
 bot = discord.ext.commands.Bot()
 
 @bot.command()

@@ -1,1 +1,4 @@
 /.vs
+build/
+minecraftstatus.egg-info/
+dist/
