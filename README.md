@@ -6,13 +6,13 @@ An async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.i
 ### Get started
 
 #### to get started, type this in your terminal
-```py
-pip install minecraftstatus
+```
+pip install -U minecraftstatus
 ```
 
 #### or to install the main branch
-```py
-pip install git+https://github.com/Infernum1/MCUtility
+```
+pip install -U git+https://github.com/Infernum1/MCUtility
 ```
 ###### (make sure you have git installed)
 ### Example
