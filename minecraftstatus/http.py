@@ -11,6 +11,7 @@ class HTTPClient:
         self.session = None
 
     async def request(self, method: str, endpoint: str) -> dict:
-        async with aiohttp.ClientSession() as self.session:
-            async with self.session.request(method, endpoint) as resp:
-                return resp
+        self.session = ClientSession()
+        resp = await self.session.request(method, endpoint)
+        await self.session.close()
+        return await resp
