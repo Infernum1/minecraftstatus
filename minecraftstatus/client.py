@@ -65,7 +65,7 @@ class MCStatus(HTTPClient):
             "GET", base_url.format(f"mc/server/status/{ip_address}/image")
         )
         image = BytesIO(await res.read())
-        self._close()
+        await self._close()
         return image
 
     async def achievement(self, achievement: str):
@@ -84,7 +84,7 @@ class MCStatus(HTTPClient):
             "GET", base_url.format(f"mc/image/achievement/{achievement}")
         )
         image = BytesIO(await res.read())
-        self._close()
+        await self._close()
         return image
 
     async def splash_text(self, text: str):
@@ -101,5 +101,5 @@ class MCStatus(HTTPClient):
 
         res = await self._request("GET", base_url.format(f"mc/image/splash/{text}"))
         image = BytesIO(await res.read())
-        self._close()
+        await self._close()
         return image
