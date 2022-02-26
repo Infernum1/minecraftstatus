@@ -82,9 +82,9 @@ class ServerStatus:
         return self.resp["version"]
 
     @property
-    def online_players(self) -> list[str]:
+    def online_players(self) -> list:
         """
-        A list of the online players of the server.
+        A list of dicts of the online players of the server and their UUID/XUID.
         Returns
         -------
         list[str]
