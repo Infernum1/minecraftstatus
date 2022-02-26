@@ -17,7 +17,7 @@ pip install -U git+https://github.com/Infernum1/minecraftstatus
 ###### (make sure you have git installed)
 ### Examples
 
-#### For examples, checkout the [examples directory](github.com/Infernum1/minecraftstatus/tree/main/examples)
+#### For examples, checkout the [examples directory](https://github.com/Infernum1/minecraftstatus/tree/main/examples)
 ##### If you plan to use the lib in a discord bot
 
 ```py
