@@ -63,7 +63,7 @@ class MCStatus(HTTPClient):
         -------
         io.BytesIO object co-relating the server card.
         """
-        if len(ip_address) > 30:
+        if len(ip_address) > 30 and len(ip_address) < 1:
             raise BadCharacterFormation()
         res = await self._request(
             "GET", base_url.format(f"mc/server/status/{ip_address}/image")
@@ -83,7 +83,7 @@ class MCStatus(HTTPClient):
         -------
         io.BytesIO object co-relating the achievement image.
         """
-        if len(achievement) > 30:
+        if len(achievement) > 30 and len(achievement) > 1:
             raise BadCharacterFormation()
         res = await self._request(
             "GET", base_url.format(f"mc/image/achievement/{achievement}")
@@ -103,7 +103,7 @@ class MCStatus(HTTPClient):
         -------
         io.BytesIO object co-relating the splash image.
         """
-        if len(text) > 30:
+        if len(text) > 30 and len(text) < 1:
             raise BadCharacterFormation()
         res = await self._request(
             "GET", base_url.format(f"mc/image/splash/{text}")
