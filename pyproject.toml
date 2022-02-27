@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "minecraftstatus"
-version = "0.0.6"
+version = "0.0.7"
 description = "minecraftstatus is an asynchronous wrapper for https://api.iapetus11.me."
 authors = ["Infernum1"]
 license = "MIT"

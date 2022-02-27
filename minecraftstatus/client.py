@@ -40,6 +40,8 @@ class MCStatus(HTTPClient):
         favicon: The base64 data of the favicon of the server.
         game_map: The game map of the server.
         game_mode: The game mode of the server.
+
+        Raises: :exc:`ServerNotFound` if the server is not found or is offline.
         """
 
         resp = await self._request(
@@ -62,6 +64,8 @@ class MCStatus(HTTPClient):
         Returns:
         -------
         io.BytesIO object co-relating the server card.
+
+        Raises: :exc:`BadTextFormation` if the characters passed aren't between 1-30.
         """
         if len(ip_address) > 30 and len(ip_address) < 1:
             raise BadTextFormation()
@@ -82,6 +86,8 @@ class MCStatus(HTTPClient):
         Returns
         -------
         io.BytesIO object co-relating the achievement image.
+
+        Raises: :exc:`BadTextFormation` if the characters passed aren't between 1-30.
         """
         if len(achievement) > 30 and len(achievement) > 1:
             raise BadTextFormation()
@@ -102,6 +108,8 @@ class MCStatus(HTTPClient):
         Returns
         -------
         io.BytesIO object co-relating the splash image.
+
+        Raises: :exc:`BadTextFormation` if the characters passed aren't between 1-30.
         """
         if len(text) > 30 and len(text) < 1:
             raise BadTextFormation()
