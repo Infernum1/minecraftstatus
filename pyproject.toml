@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "minecraftstatus"
-version = "0.0.5"
+version = "0.0.6"
 description = "minecraftstatus is an asynchronous wrapper for https://api.iapetus11.me."
 authors = ["Infernum1"]
 license = "MIT"
@@ -9,7 +9,7 @@ repository = "https://github.com/Infernum1/minecraftstatus"
 
 [tool.poetry.dependencies]
 python = ">3.6"
-aiohttp = "^3.8.1"
+aiohttp = "^3.7.2"
 
 [tool.poetry.dev-dependencies]
 
