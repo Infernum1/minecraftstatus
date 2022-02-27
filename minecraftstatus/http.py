@@ -2,6 +2,7 @@ from aiohttp import ClientSession
 
 __all__ = ("HTTPClient",)
 
+
 class HTTPClient:
     def __init__(self):
         self.session = None

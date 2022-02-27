@@ -19,15 +19,15 @@ class MCStatus(HTTPClient):
     async def get_server(self, ip_address: str):
         """
         Makes a request to the server status endpoint.
-        
+
         Parameters:
         ----------
         ip_address: :class:`str` IP address of the server.
-        
+
         Returns:
         -------
         ServerStatus class instance.
-        
+
         Attributes:
         -----------
         host: The host of the server.
@@ -58,7 +58,7 @@ class MCStatus(HTTPClient):
         Parameters:
         ----------
         ip_address: :class:`str` IP address of the server.
-        
+
         Returns:
         -------
         io.BytesIO object co-relating the server card.
@@ -98,16 +98,14 @@ class MCStatus(HTTPClient):
         Parameters
         ----------
         text: :class:`str` text to display in the splash.
-        
+
         Returns
         -------
         io.BytesIO object co-relating the splash image.
         """
         if len(text) > 30 and len(text) < 1:
             raise BadTextFormation()
-        res = await self._request(
-            "GET", base_url.format(f"mc/image/splash/{text}")
-        )
+        res = await self._request("GET", base_url.format(f"mc/image/splash/{text}"))
         image = BytesIO(await res.read())
         await self._close()
         return image

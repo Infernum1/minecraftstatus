@@ -1,8 +1,7 @@
 from io import BytesIO
 
-__all__ = (
-    "ServerStatus",
-)
+__all__ = ("ServerStatus",)
+
 
 class ServerStatus:
     def __init__(self, resp):
