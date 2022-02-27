@@ -4,7 +4,6 @@ __all__ = (
     "ServerStatus",
 )
 
-
 class ServerStatus:
     def __init__(self, resp):
         self.resp = resp
@@ -65,11 +64,13 @@ class ServerStatus:
         An io.BytesIO object co-relating the server icon
         Returns
         -------
-        str or None
+        io.BytesIO object or None
         """
-        data = bytes(self.resp["favicon"], "utf-8")
-        favicon = BytesIO(data)
-        return favicon
+        if self.resp["favicon"]:
+            data = bytes(self.resp["favicon"], "utf-8")
+            favicon = BytesIO(data)
+            return favicon
+        return None
 
     @property
     def version_info(self) -> dict:
@@ -87,7 +88,7 @@ class ServerStatus:
         A list of dicts of the online players of the server and their UUID/XUID.
         Returns
         -------
-        list[str]
+        list[dict[str, str]]
         """
         return self.resp["players"]
 

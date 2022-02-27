@@ -2,7 +2,7 @@ from io import BytesIO
 
 from .server_status import ServerStatus
 from .http import HTTPClient
-
+from .errors import BadCharacterFormation, ServerNotFound
 
 __all__ = ("MCStatus",)
 base_url = "https://api.iapetus11.me/{}"
@@ -45,9 +45,12 @@ class MCStatus(HTTPClient):
         resp = await self._request(
             "GET", base_url.format(f"mc/server/status/{ip_address}")
         )
-        resp = await resp.json()
+        data = await resp.json()
+        if data["port"] == -1 or data["online"] is False:
+            await self._close()
+            raise ServerNotFound()
         await self._close()
-        return ServerStatus(resp)
+        return ServerStatus(data)
 
     async def get_server_card(self, ip_address: str):
         """
@@ -60,7 +63,8 @@ class MCStatus(HTTPClient):
         -------
         io.BytesIO object co-relating the server card.
         """
-
+        if len(ip_address) > 30:
+            raise BadCharacterFormation()
         res = await self._request(
             "GET", base_url.format(f"mc/server/status/{ip_address}/image")
         )
@@ -79,7 +83,8 @@ class MCStatus(HTTPClient):
         -------
         io.BytesIO object co-relating the achievement image.
         """
-
+        if len(achievement) > 30:
+            raise BadCharacterFormation()
         res = await self._request(
             "GET", base_url.format(f"mc/image/achievement/{achievement}")
         )
@@ -98,8 +103,11 @@ class MCStatus(HTTPClient):
         -------
         io.BytesIO object co-relating the splash image.
         """
-
-        res = await self._request("GET", base_url.format(f"mc/image/splash/{text}"))
+        if len(text) > 30:
+            raise BadCharacterFormation()
+        res = await self._request(
+            "GET", base_url.format(f"mc/image/splash/{text}")
+        )
         image = BytesIO(await res.read())
         await self._close()
         return image
