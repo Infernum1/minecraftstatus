@@ -48,7 +48,7 @@ class MCStatus(HTTPClient):
         data = await resp.json()
         if data["online"] is False:
             await self._close()
-            raise ServerNotFound()
+            raise ServerNotFound(ip_address)
         await self._close()
         return ServerStatus(data)
 
