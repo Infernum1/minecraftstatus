@@ -46,7 +46,7 @@ class MCStatus(HTTPClient):
             "GET", base_url.format(f"mc/server/status/{ip_address}")
         )
         data = await resp.json()
-        if data["port"] == -1 or data["online"] is False:
+        if data["online"] is False:
             await self._close()
             raise ServerNotFound()
         await self._close()
