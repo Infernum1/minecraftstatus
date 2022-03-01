@@ -44,9 +44,7 @@ class MCStatus(HTTPClient):
         Raises: :exc:`ServerNotFound` if the server is not found or is offline.
         """
 
-        resp = await self._request(
-            "GET", base_url.format(f"mc/server/status/{ip_address}")
-        )
+        resp = await self._request("GET", base_url.format(f"mc/server/status/{ip_address}"))
         data = await resp.json()
         if data["online"] is False:
             await self._close()
@@ -69,9 +67,7 @@ class MCStatus(HTTPClient):
         """
         if len(ip_address) > 30 and len(ip_address) < 1:
             raise BadTextFormation()
-        res = await self._request(
-            "GET", base_url.format(f"mc/server/status/{ip_address}/image")
-        )
+        res = await self._request("GET", base_url.format(f"mc/server/status/{ip_address}/image"))
         image = BytesIO(await res.read())
         await self._close()
         return image
@@ -91,9 +87,7 @@ class MCStatus(HTTPClient):
         """
         if len(achievement) > 30 and len(achievement) > 1:
             raise BadTextFormation()
-        res = await self._request(
-            "GET", base_url.format(f"mc/image/achievement/{achievement}")
-        )
+        res = await self._request("GET", base_url.format(f"mc/image/achievement/{achievement}"))
         image = BytesIO(await res.read())
         await self._close()
         return image
