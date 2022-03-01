@@ -1,4 +1,8 @@
-__all__ = ("ServerNotFound", "BadTextFormation",)
+__all__ = (
+    "ServerNotFound",
+    "BadTextFormation",
+)
+
 
 class ServerNotFound(Exception):
     """
