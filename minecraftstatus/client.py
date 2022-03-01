@@ -4,7 +4,7 @@ from .server_status import ServerStatus
 from .http import HTTPClient
 from .errors import BadTextFormation, ServerNotFound
 
-__all__ = ("MCStatus", "ServerNotFound", "BadTextFormation") # docs don't properly work without this
+__all__ = ("MCStatus", "ServerNotFound", "BadTextFormation")  # docs don't properly work without this
 base_url = "https://api.iapetus11.me/{}"
 
 
