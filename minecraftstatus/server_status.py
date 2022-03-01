@@ -7,12 +7,16 @@ class ServerStatus:
     def __init__(self, resp):
         self.resp = resp
 
+    """
+    The ServerStatus class is used to return the data through :class:`MCStatus`.
+    """
+
     @property
     def host(self) -> str:
         """
         The host of the server.
-        Returns
-        -------
+        Returns:
+        --------
         str
         """
         return self.resp["host"]
@@ -21,8 +25,8 @@ class ServerStatus:
     def port(self) -> int:
         """
         The port of the server.
-        Returns
-        -------
+        Returns:
+        --------
         int or None
         """
         return self.resp["port"]
@@ -31,8 +35,8 @@ class ServerStatus:
     def is_online(self) -> bool:
         """
         Checks if the server is online.
-        Returns
-        -------
+        Returns:
+        --------
         bool: True if the server is online, False otherwise.
         """
         return self.resp["online"]
@@ -41,8 +45,8 @@ class ServerStatus:
     def latency(self) -> int:
         """
         The latency of the server.
-        Returns
-        -------
+        Returns:
+        --------
         int: latency in milliseconds, -1 if the server is offline.
         """
         return self.resp["latency"]
@@ -51,8 +55,8 @@ class ServerStatus:
     def max_players(self) -> int:
         """
         The maximum players of the server.
-        Returns
-        -------
+        Returns:
+        --------
         int or None
         """
         return self.resp["max_players"]
@@ -61,8 +65,8 @@ class ServerStatus:
     def favicon(self) -> str:
         """
         An io.BytesIO object co-relating the server icon
-        Returns
-        -------
+        Returns:
+        --------
         io.BytesIO object or None
         """
         if self.resp["favicon"]:
@@ -75,8 +79,8 @@ class ServerStatus:
     def version_info(self) -> dict:
         """
         The version info of the server.
-        Returns
-        -------
+        Returns:
+        --------
         dict[Any, Any]
         """
         return self.resp["version"]
@@ -85,8 +89,8 @@ class ServerStatus:
     def online_players(self) -> list:
         """
         A list of dicts of the online players of the server and their UUID/XUID.
-        Returns
-        -------
+        Returns:
+        --------
         list[dict[str, str]]
         """
         return self.resp["players"]
@@ -95,8 +99,8 @@ class ServerStatus:
     def online_player_count(self) -> int:
         """
         The online player count of the server.
-        Returns
-        -------
+        Returns:
+        --------
         int or None
         """
         return self.resp["online_players"]
@@ -105,8 +109,8 @@ class ServerStatus:
     def clean_motd(self) -> str:
         """
         The clean message of the day (MOTD) of the server.
-        Returns
-        -------
+        Returns:
+        --------
         str or None
         """
         return self.resp["motd_clean"]
@@ -115,8 +119,8 @@ class ServerStatus:
     def motd(self) -> str:
         """
         The message of the day (MOTD) of the server.
-        Returns
-        -------
+        Returns:
+        --------
         str or None
         """
         return self.resp["motd"]
@@ -125,8 +129,8 @@ class ServerStatus:
     def gamemode(self) -> str:
         """
         The game mode of the server.
-        Returns
-        -------
+        Returns:
+        --------
         str or None
         """
         return self.resp["gamemode"]
@@ -135,8 +139,8 @@ class ServerStatus:
     def game_map(self) -> str:
         """
         The game map of the server.
-        Returns
-        -------
+        Returns:
+        --------
         str or None
         """
         return self.resp["map"]

@@ -1,10 +1,16 @@
+__all__ = (
+    "ServerNotFound",
+    "BadTextFormation",
+)
+
+
 class ServerNotFound(Exception):
     """
-    Exception raised when a server is not found or is offline.
+    Exception raised when a server is not found or is offline. Has the following attribute:
 
     Attributes
     ----------
-    address: `str` The address of the server passed.
+    address: (:class:`str`)the address of the server passed.
     """
 
     def __init__(self, address: str):

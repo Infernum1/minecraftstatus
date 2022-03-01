@@ -3,7 +3,7 @@
 An async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.iapetus11.me)
 
 
-### Get started
+### Get started || [Documentation](https://minecraftstatus.readthedocs.io/en/latest/)
 
 #### to get started, type this in your terminal
 ```
