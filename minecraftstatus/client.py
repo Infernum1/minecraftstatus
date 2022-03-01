@@ -20,16 +20,16 @@ class MCStatus(HTTPClient):
         """
         Makes a request to the server status endpoint.
 
-        Parameters:
+        Parameters
         ----------
         ip_address: :class:`str` IP address of the server.
 
-        Returns:
+        Returns
         -------
-        ServerStatus class instance.
+        :class:`ServerStatus`
 
-        Attributes:
-        -----------
+        Attributes
+        ----------
         host: The host of the server.
         port: The port of the server.
         is_online: True if the server is online, False otherwise.
@@ -40,8 +40,8 @@ class MCStatus(HTTPClient):
         favicon: The base64 data of the favicon of the server.
         game_map: The game map of the server.
         game_mode: The game mode of the server.
-
-        Raises: :exc:`ServerNotFound` if the server is not found or is offline.
+        ----------
+        Raises `ServerNotFound` if the server is not found or is offline.
         """
 
         resp = await self._request(
@@ -56,16 +56,19 @@ class MCStatus(HTTPClient):
 
     async def get_server_card(self, ip_address: str):
         """
-        Makes a request to the server-card endpoint.
-        Parameters:
+        Makes a request to the server status endpoint.
+
+        Parameters
         ----------
         ip_address: :class:`str` IP address of the server.
 
-        Returns:
+        Returns
         -------
-        io.BytesIO object co-relating the server card.
+        `io.BytesIO` object co-relating the server card image.
 
-        Raises: :exc:`BadTextFormation` if the characters passed aren't between 1-30.
+        Raises
+        ------ 
+        :exc:`BadTextFormation` if the characters passed aren't between 1-30.
         """
         if len(ip_address) > 30 and len(ip_address) < 1:
             raise BadTextFormation()
@@ -79,13 +82,11 @@ class MCStatus(HTTPClient):
     async def achievement(self, achievement: str):
         """
         Makes a request to the achievement endpoint.
-        Parameters
-        ----------
+        Parameters:
+        -----------
         achievement: :class:`str` name of the achievement to display.
 
-        Returns
-        -------
-        io.BytesIO object co-relating the achievement image.
+        Returns an io.BytesIO object co-relating the achievement image.
 
         Raises: :exc:`BadTextFormation` if the characters passed aren't between 1-30.
         """
@@ -101,13 +102,11 @@ class MCStatus(HTTPClient):
     async def splash_text(self, text: str):
         """
         Makes a request to the splash text endpoint.
-        Parameters
-        ----------
+        Parameters:
+        -----------
         text: :class:`str` text to display in the splash.
 
-        Returns
-        -------
-        io.BytesIO object co-relating the splash image.
+        Returns an io.BytesIO object co-relating the splash image.
 
         Raises: :exc:`BadTextFormation` if the characters passed aren't between 1-30.
         """

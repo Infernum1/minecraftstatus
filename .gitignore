@@ -2,3 +2,4 @@
 build/
 minecraftstatus.egg-info/
 dist/
+minecraftstatus/__pycache__/

@@ -1,3 +1,5 @@
+__all__ = ("ServerNotFound", "BadTextFormation",)
+
 class ServerNotFound(Exception):
     """
     Exception raised when a server is not found or is offline.

@@ -1,20 +1,10 @@
-.. minecraftstatus documentation master file, created by
-   sphinx-quickstart on Tue Mar  1 11:58:05 2022.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
-Welcome to minecraftstatus's documentation!
+Welcome to minecraftstatus' documentation!
 ===========================================
 
+.. automodule:: minecraftstatus
+    :members:
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
    :caption: Contents:
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
