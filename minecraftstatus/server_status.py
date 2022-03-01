@@ -6,7 +6,9 @@ __all__ = ("ServerStatus",)
 class ServerStatus:
     def __init__(self, resp):
         self.resp = resp
-
+    """
+    The ServerStatus class is used to return the data through :class:`MCStatus`.
+    """
     @property
     def host(self) -> str:
         """

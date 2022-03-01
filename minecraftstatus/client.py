@@ -4,7 +4,7 @@ from .server_status import ServerStatus
 from .http import HTTPClient
 from .errors import BadTextFormation, ServerNotFound
 
-__all__ = ("MCStatus",)
+__all__ = ("MCStatus", "ServerNotFound", "BadTextFormation") # docs don't properly work without this
 base_url = "https://api.iapetus11.me/{}"
 
 
@@ -18,15 +18,10 @@ class MCStatus(HTTPClient):
 
     async def get_server(self, ip_address: str):
         """
-        Makes a request to the server status endpoint.
-
-        Parameters
-        ----------
-        ip_address: :class:`str` IP address of the server.
-
-        Returns
-        -------
-        :class:`ServerStatus`
+        :param ip_address: IP address of the server
+        :type ip_address: :class:`str`
+        :raises ServerNotFound: server not found or is offline
+        :return: a :class:`ServerStatus` class instance with the following attributes
 
         Attributes
         ----------
@@ -40,8 +35,7 @@ class MCStatus(HTTPClient):
         favicon: The base64 data of the favicon of the server.
         game_map: The game map of the server.
         game_mode: The game mode of the server.
-        ----------
-        Raises `ServerNotFound` if the server is not found or is offline.
+
         """
 
         resp = await self._request("GET", base_url.format(f"mc/server/status/{ip_address}"))
@@ -54,19 +48,10 @@ class MCStatus(HTTPClient):
 
     async def get_server_card(self, ip_address: str):
         """
-        Makes a request to the server status endpoint.
-
-        Parameters
-        ----------
-        ip_address: :class:`str` IP address of the server.
-
-        Returns
-        -------
-        `io.BytesIO` object co-relating the server card image.
-
-        Raises
-        ------ 
-        :exc:`BadTextFormation` if the characters passed aren't between 1-30.
+        :param ip_address: IP address of the server
+        :type ip_address: :class:`str`
+        :raises `BadTextFormation`: text passed is not between 1-30 characters
+        :return: an io.BytesIO object co-relating the server card image.
         """
         if len(ip_address) > 30 and len(ip_address) < 1:
             raise BadTextFormation()
@@ -77,14 +62,10 @@ class MCStatus(HTTPClient):
 
     async def achievement(self, achievement: str):
         """
-        Makes a request to the achievement endpoint.
-        Parameters:
-        -----------
-        achievement: :class:`str` name of the achievement to display.
-
-        Returns an io.BytesIO object co-relating the achievement image.
-
-        Raises: :exc:`BadTextFormation` if the characters passed aren't between 1-30.
+        :param achievement: name of the achievement to display.
+        :type achievement: :class:`str`
+        :raises BadTextFormation: text passed is not between 1-30 characters
+        :return: an io.BytesIO object co-relating the achievement image.
         """
         if len(achievement) > 30 and len(achievement) > 1:
             raise BadTextFormation()
@@ -95,14 +76,10 @@ class MCStatus(HTTPClient):
 
     async def splash_text(self, text: str):
         """
-        Makes a request to the splash text endpoint.
-        Parameters:
-        -----------
-        text: :class:`str` text to display in the splash.
-
-        Returns an io.BytesIO object co-relating the splash image.
-
-        Raises: :exc:`BadTextFormation` if the characters passed aren't between 1-30.
+        :param text: text to display in the splash.
+        :type text: :class:`str`
+        :raises BadTextFormation: text passed is not between 1-30 characters
+        :return: an io.BytesIO object co-relating the splash text image.
         """
         if len(text) > 30 and len(text) < 1:
             raise BadTextFormation()

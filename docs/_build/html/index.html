@@ -66,6 +66,12 @@
              
   <section id="module-minecraftstatus">
 <span id="welcome-to-minecraftstatus-documentation"></span><h1>Welcome to minecraftstatus’ documentation!<a class="headerlink" href="#module-minecraftstatus" title="Permalink to this headline"></a></h1>
+<dl class="py exception">
+<dt class="sig sig-object py" id="minecraftstatus.BadTextFormation">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minecraftstatus.</span></span><span class="sig-name descname"><span class="pre">BadTextFormation</span></span><a class="headerlink" href="#minecraftstatus.BadTextFormation" title="Permalink to this definition"></a></dt>
+<dd><p>Exception raised when the characters passed are not between 1 and 30 for some endpoints.</p>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="minecraftstatus.MCStatus">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minecraftstatus.</span></span><span class="sig-name descname"><span class="pre">MCStatus</span></span><a class="headerlink" href="#minecraftstatus.MCStatus" title="Permalink to this definition"></a></dt>
@@ -73,24 +79,31 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="minecraftstatus.MCStatus.achievement">
 <em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">achievement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">achievement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minecraftstatus.MCStatus.achievement" title="Permalink to this definition"></a></dt>
-<dd><p>Makes a request to the achievement endpoint.
-Parameters:
-———–
-achievement: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> name of the achievement to display.</p>
-<p>Returns an io.BytesIO object co-relating the achievement image.</p>
-<p>Raises: <code class="xref py py-exc docutils literal notranslate"><span class="pre">BadTextFormation</span></code> if the characters passed aren’t between 1-30.</p>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>achievement</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – name of the achievement to display.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#minecraftstatus.BadTextFormation" title="minecraftstatus.BadTextFormation"><strong>BadTextFormation</strong></a> – text passed is not between 1-30 characters</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an io.BytesIO object co-relating the achievement image.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minecraftstatus.MCStatus.get_server">
 <em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minecraftstatus.MCStatus.get_server" title="Permalink to this definition"></a></dt>
-<dd><p>Makes a request to the server status endpoint.</p>
-<dl class="field-list simple">
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ip_address</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> IP address of the server.) – </p>
+<dd class="field-odd"><p><strong>ip_address</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – IP address of the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ServerStatus</span></code></p>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#minecraftstatus.ServerNotFound" title="minecraftstatus.ServerNotFound"><strong>ServerNotFound</strong></a> – server not found or is offline</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">ServerStatus</span></code> class instance with the following attributes</p>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -193,31 +206,20 @@ achievement: <code class="xref py py-class docutils literal notranslate"><span c
 </dl>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">----------</span></span></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">Raises</span> <span class="pre">`ServerNotFound`</span> <span class="pre">if</span> <span class="pre">the</span> <span class="pre">server</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">found</span> <span class="pre">or</span> <span class="pre">is</span> <span class="pre">offline.</span></span></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="minecraftstatus.MCStatus.get_server_card">
 <em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_server_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minecraftstatus.MCStatus.get_server_card" title="Permalink to this definition"></a></dt>
-<dd><p>Makes a request to the server status endpoint.</p>
-<dl class="field-list simple">
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ip_address</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> IP address of the server.) – </p>
+<dd class="field-odd"><p><strong>ip_address</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – IP address of the server</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><cite>io.BytesIO</cite> object co-relating the server card image.</p>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#minecraftstatus.BadTextFormation" title="minecraftstatus.BadTextFormation"><strong>BadTextFormation</strong></a> – text passed is not between 1-30 characters</p>
 </dd>
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>BadTextFormation</strong> – </p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an io.BytesIO object co-relating the server card image.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -225,12 +227,33 @@ achievement: <code class="xref py py-class docutils literal notranslate"><span c
 <dl class="py method">
 <dt class="sig sig-object py" id="minecraftstatus.MCStatus.splash_text">
 <em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">splash_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minecraftstatus.MCStatus.splash_text" title="Permalink to this definition"></a></dt>
-<dd><p>Makes a request to the splash text endpoint.
-Parameters:
-———–
-text: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> text to display in the splash.</p>
-<p>Returns an io.BytesIO object co-relating the splash image.</p>
-<p>Raises: <code class="xref py py-exc docutils literal notranslate"><span class="pre">BadTextFormation</span></code> if the characters passed aren’t between 1-30.</p>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – text to display in the splash.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#minecraftstatus.BadTextFormation" title="minecraftstatus.BadTextFormation"><strong>BadTextFormation</strong></a> – text passed is not between 1-30 characters</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>an io.BytesIO object co-relating the splash text image.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="minecraftstatus.ServerNotFound">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minecraftstatus.</span></span><span class="sig-name descname"><span class="pre">ServerNotFound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#minecraftstatus.ServerNotFound" title="Permalink to this definition"></a></dt>
+<dd><p>Exception raised when a server is not found or is offline. Has the following attribute:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minecraftstatus.ServerNotFound.address">
+<span class="sig-name descname"><span class="pre">address</span></span><a class="headerlink" href="#minecraftstatus.ServerNotFound.address" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>(<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>)the address of the server passed.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
