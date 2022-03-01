@@ -1,6 +1,6 @@
 from .client import *
 
-__version__ = "0.0.1"
+__version__ = "0.0.7"
 __author__ = "Infernum1"
 __title__ = "minecraftstatus"
 __copyright__ = "Copyright (c) 2022 Infernum1"
