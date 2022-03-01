@@ -3,4 +3,3 @@ build/
 minecraftstatus.egg-info/
 dist/
 minecraftstatus/__pycache__/
-docs/_build/
