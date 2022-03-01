@@ -65,7 +65,7 @@ class MCStatus(HTTPClient):
         `io.BytesIO` object co-relating the server card image.
 
         Raises
-        ------ 
+        ------
         :exc:`BadTextFormation` if the characters passed aren't between 1-30.
         """
         if len(ip_address) > 30 and len(ip_address) < 1:
