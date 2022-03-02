@@ -1,4 +1,6 @@
 from .client import *
+from .errors import *
+from .server_status import *
 
 __version__ = "0.0.7"
 __author__ = "Infernum1"
