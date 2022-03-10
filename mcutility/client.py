@@ -19,12 +19,15 @@ class MCStatus(HTTPClient):
     async def get_server(self, ip_address: str):
         """
         Makes a request to the server status endpoint.
+        
         Parameters:
         ----------
         ip_address: IP address of the server.
+        
         Returns:
         -------
         ServerStatus class instance.
+        
         Attributes:
         -----------
         host: The host of the server.
@@ -48,9 +51,11 @@ class MCStatus(HTTPClient):
     async def get_server_card(self, ip_address: str):
         """
         Makes a request to the server-card endpoint.
+        
         Parameters:
         ----------
         ip_address: IP address of the server.
+        
         Returns:
         -------
         io.BytesIO object co-relating the server card.
@@ -65,9 +70,11 @@ class MCStatus(HTTPClient):
     async def achievement(self, achievement: str):
         """
         Makes a request to the achievement endpoint.
+        
         Parameters
         ----------
         achievement: name of the achievement to display.
+        
         Returns
         -------
         io.BytesIO object co-relating the achievement image.
@@ -82,9 +89,11 @@ class MCStatus(HTTPClient):
     async def splash_text(self, text: str):
         """
         Makes a request to the splash text endpoint.
+        
         Parameters
         ----------
         text: text to display in the splash.
+        
         Returns
         -------
         io.BytesIO object co-relating the splash image.
