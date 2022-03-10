@@ -12,7 +12,8 @@ class ServerStatus:
     @property
     def host(self) -> str:
         """
-        Returns the host of the server.
+        The host of the server.
+        
         Returns
         -------
         str
@@ -22,7 +23,8 @@ class ServerStatus:
     @property
     def port(self) -> int:
         """
-        Returns the port of the server.
+        The port of the server.
+        
         Returns
         -------
         int or None
@@ -33,6 +35,7 @@ class ServerStatus:
     def is_online(self) -> bool:
         """
         Checks if the server is online.
+        
         Returns
         -------
         bool: True if the server is online, False otherwise.
@@ -42,7 +45,8 @@ class ServerStatus:
     @property
     def latency(self) -> int:
         """
-        Returns the latency of the server.
+        The latency of the server.
+        
         Returns
         -------
         int: latency in milliseconds, -1 if the server is offline.
@@ -52,7 +56,8 @@ class ServerStatus:
     @property
     def max_players(self) -> int:
         """
-        Returns the maximum players of the server.
+        The maximum players of the server.
+        
         Returns
         -------
         int or None
@@ -62,7 +67,8 @@ class ServerStatus:
     @property
     def favicon(self) -> str:
         """
-        Returns base64 data of the favicon of the server.
+        Base64 data of the favicon of the server.
+        
         Returns
         -------
         str or None
@@ -72,7 +78,8 @@ class ServerStatus:
     @property
     def version_info(self) -> dict:
         """
-        Returns the version info of the server.
+        The version info of the server.
+        
         Returns
         -------
         dict[Any, Any]
@@ -82,7 +89,8 @@ class ServerStatus:
     @property
     def online_players(self) -> list[str]:
         """
-        Returns a list of the online players of the server.
+        List of the online players of the server.
+        
         Returns
         -------
         list[str]
@@ -92,7 +100,8 @@ class ServerStatus:
     @property
     def online_player_count(self) -> int:
         """
-        Returns the online player count of the server.
+        The online player count of the server.
+        
         Returns
         -------
         int or None
@@ -102,7 +111,8 @@ class ServerStatus:
     @property
     def clean_motd(self) -> str:
         """
-        Returns the clean message of the day (MOTD) of the server.
+        The clean message of the day (MOTD) of the server.
+        
         Returns
         -------
         str or None
@@ -112,7 +122,8 @@ class ServerStatus:
     @property
     def motd(self) -> str:
         """
-        Returns the message of the day (MOTD) of the server.
+        The message of the day (MOTD) of the server.
+        
         Returns
         -------
         str or None
@@ -122,7 +133,8 @@ class ServerStatus:
     @property
     def gamemode(self) -> str:
         """
-        Returns the game mode of the server.
+        The game mode of the server.
+        
         Returns
         -------
         str or None
@@ -132,7 +144,8 @@ class ServerStatus:
     @property
     def game_map(self) -> str:
         """
-        Returns the game map of the server.
+        The game map of the server.
+        
         Returns
         -------
         str or None
