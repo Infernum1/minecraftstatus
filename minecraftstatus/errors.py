@@ -8,11 +8,12 @@ class ServerNotFound(Exception):
     """
     Exception raised when a server is not found or is offline. Has the following attribute:
 
+    **Note:** the error is :class:`minecraftstatus.errors.ServerNotFound`. Due to an issue, it's incorrectly shown in the documentation above.
+    
     Attributes
     ----------
     address: (:class:`str`)the address of the server passed.
     
-    **Note:** the error is :class:`minecraftstatus.errors.ServerNotFound`. Due to an issue, it's incorrectly shown in the documentation above.
     """
 
     def __init__(self, address: str):
