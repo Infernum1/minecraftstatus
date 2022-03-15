@@ -11,7 +11,7 @@ class ServerNotFound(Exception):
     Attributes
     ----------
     address: (:class:`str`)the address of the server passed.
-    
+
     **Note:** the error is :class:`minecraftstatus.errors.ServerNotFound`. Due to an issue, it's incorrectly shown in the documentation above.
     """
 
