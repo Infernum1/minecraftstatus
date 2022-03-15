@@ -99,7 +99,7 @@ class ServerStatus:
     def online_player_count(self) -> int:
         """
         The online player count of the server.
-        Returns:    
+        Returns:
         --------
         int or None
         """
