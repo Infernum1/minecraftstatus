@@ -62,7 +62,7 @@ class ServerStatus:
         return self.resp["max_players"]
 
     @property
-    def favicon(self) -> str:
+    def favicon(self) -> BytesIO:
         """
         An io.BytesIO object co-relating the server icon
         Returns:
@@ -99,7 +99,7 @@ class ServerStatus:
     def online_player_count(self) -> int:
         """
         The online player count of the server.
-        Returns:
+        Returns:    
         --------
         int or None
         """
