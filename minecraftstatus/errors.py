@@ -11,6 +11,8 @@ class ServerNotFound(Exception):
     Attributes
     ----------
     address: (:class:`str`)the address of the server passed.
+    
+    **Note:** the error is :class:`minecraftstatus.errors.ServerNotFound`. Due to an issue, it's incorrectly shown in the documentation above.
     """
 
     def __init__(self, address: str):
@@ -21,6 +23,8 @@ class ServerNotFound(Exception):
 class BadTextFormation(Exception):
     """
     Exception raised when the characters passed are not between 1 and 30 for some endpoints.
+
+    **Note:** the error is :class:`minecraftstatus.errors.BadTextFormation`. Due to an issue, it's incorrectly shown in the documentation above.
     """
 
     def __init__(self):
