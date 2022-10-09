@@ -36,4 +36,4 @@ async def achievement(achievement: str):
 
 ###### these are just examples! it's upto you how you want to use this lib.
 
-### Add `Infernum#7041` for help
+### Add `Infernum#7041` on discord for help
