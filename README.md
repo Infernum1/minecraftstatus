@@ -14,7 +14,7 @@ pip install -U minecraftstatus
 ```
 pip install -U git+https://github.com/Infernum1/minecraftstatus
 ```
-###### (make sure you have git installed)
+###### (make sure you have [git](https://gitforwindows.org) installed)
 ### Examples
 
 #### For examples, checkout the [examples directory](https://github.com/Infernum1/minecraftstatus/tree/main/examples)
