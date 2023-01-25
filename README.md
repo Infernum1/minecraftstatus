@@ -3,6 +3,8 @@
 An async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.iapetus11.me)
 
 
+[![CodeFactor](https://www.codefactor.io/repository/github/infernum1/minecraftstatus/badge/main)](https://www.codefactor.io/repository/github/infernum1/minecraftstatus/overview/main)
+
 ### Get started || [Documentation](https://minecraftstatus.readthedocs.io/en/latest/)
 
 #### to get started, type this in your terminal
