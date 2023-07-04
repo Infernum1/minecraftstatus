@@ -8,7 +8,7 @@ client = minecraftstatus.MCStatus()
 
 async def main(achievement: str):
     image = await client.achievement(achievement)
-    print(await image.getvalue())
+    print(image.getvalue())
 
 
 if __name__ == "__main__":

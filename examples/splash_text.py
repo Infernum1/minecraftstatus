@@ -8,7 +8,7 @@ client = minecraftstatus.MCStatus()
 
 async def main(text: str):
     image = await client.splash_text(text)
-    print(await image.getvalue())
+    print(image.getvalue())
 
 
 if __name__ == "__main__":

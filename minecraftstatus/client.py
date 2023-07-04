@@ -43,19 +43,24 @@ class MCStatus(HTTPClient):
         if data["online"] is False:
             await self._close()
             raise ServerNotFound(ip_address)
+        
         await self._close()
         return ServerStatus(data)
 
-    async def get_server_card(self, ip_address: str):
+    async def get_server_card(self, ip_address: str, custom_server_name: str = ""):
         """
         :param ip_address: IP address of the server
         :type ip_address: :class:`str`
         :raises `BadTextFormation`: text passed is not between 1-30 characters
         :return: an io.BytesIO object co-relating the server card image.
         """
+        if len(custom_server_name) == 0:
+            custom_server_name = ip_address
+
         if len(ip_address) > 30 and len(ip_address) < 1:
             raise BadTextFormation()
-        res = await self._request("GET", base_url.format(f"mc/server/status/{ip_address}/image"))
+        
+        res = await self._request("GET", base_url.format(f"mc/server/status/{ip_address}/image?customName={custom_server_name}"))
         image = BytesIO(await res.read())
         await self._close()
         return image
@@ -69,6 +74,7 @@ class MCStatus(HTTPClient):
         """
         if len(achievement) > 30 and len(achievement) > 1:
             raise BadTextFormation()
+        
         res = await self._request("GET", base_url.format(f"mc/image/achievement/{achievement}"))
         image = BytesIO(await res.read())
         await self._close()
@@ -83,6 +89,7 @@ class MCStatus(HTTPClient):
         """
         if len(text) > 30 and len(text) < 1:
             raise BadTextFormation()
+        
         res = await self._request("GET", base_url.format(f"mc/image/splash/{text}"))
         image = BytesIO(await res.read())
         await self._close()
