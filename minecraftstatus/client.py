@@ -43,7 +43,7 @@ class MCStatus(HTTPClient):
         if data["online"] is False:
             await self._close()
             raise ServerNotFound(ip_address)
-        
+
         await self._close()
         return ServerStatus(data)
 
@@ -61,8 +61,10 @@ class MCStatus(HTTPClient):
 
         if len(ip_address) > 30 and len(ip_address) < 1:
             raise BadTextFormation()
-        
-        res = await self._request("GET", base_url.format(f"mc/server/status/{ip_address}/image?customName={custom_server_name}"))
+
+        res = await self._request(
+            "GET", base_url.format(f"mc/server/status/{ip_address}/image?customName={custom_server_name}")
+        )
         image = BytesIO(await res.read())
         await self._close()
         return image
@@ -76,7 +78,7 @@ class MCStatus(HTTPClient):
         """
         if len(achievement) > 30 and len(achievement) > 1:
             raise BadTextFormation()
-        
+
         res = await self._request("GET", base_url.format(f"mc/image/achievement/{achievement}"))
         image = BytesIO(await res.read())
         await self._close()
@@ -91,7 +93,7 @@ class MCStatus(HTTPClient):
         """
         if len(text) > 30 and len(text) < 1:
             raise BadTextFormation()
-        
+
         res = await self._request("GET", base_url.format(f"mc/image/splash/{text}"))
         image = BytesIO(await res.read())
         await self._close()
