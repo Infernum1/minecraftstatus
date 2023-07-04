@@ -3,6 +3,8 @@
 An async API wrapper around [api.iapetus.me](https://github.com/Iapetus-11/api.iapetus11.me)
 
 
+[![CodeFactor](https://www.codefactor.io/repository/github/infernum1/minecraftstatus/badge/main)](https://www.codefactor.io/repository/github/infernum1/minecraftstatus/overview/main)
+
 ### Get started || [Documentation](https://minecraftstatus.readthedocs.io/en/latest/)
 
 #### to get started, type this in your terminal
@@ -14,7 +16,7 @@ pip install -U minecraftstatus
 ```
 pip install -U git+https://github.com/Infernum1/minecraftstatus
 ```
-###### (make sure you have git installed)
+###### (make sure you have [git](https://gitforwindows.org) installed)
 ### Examples
 
 #### For examples, checkout the [examples directory](https://github.com/Infernum1/minecraftstatus/tree/main/examples)
@@ -36,4 +38,4 @@ async def achievement(achievement: str):
 
 ###### these are just examples! it's upto you how you want to use this lib.
 
-### Join the [discord server](https://discord.gg/jJqJ3rjgqg) for support.
+### Add `Infernum#7041` on discord for help
