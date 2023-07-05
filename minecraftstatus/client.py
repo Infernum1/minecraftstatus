@@ -40,7 +40,7 @@ class MCStatus(HTTPClient):
         :type ip_address: :class:`str`
         :type custom_server_name: :class:`str`
         :raises `BadTextFormation`: text passed is not between 1-30 characters
-        :return: an io.BytesIO object co-relating the server card image.
+        :return: an :class:`io.BytesIO` object co-relating the server card image.
         """
         if len(custom_server_name) == 0:
             custom_server_name = ip_address
@@ -60,7 +60,7 @@ class MCStatus(HTTPClient):
         :param achievement: name of the achievement to display.
         :type achievement: :class:`str`
         :raises BadTextFormation: text passed is not between 1-30 characters
-        :return: an io.BytesIO object co-relating the achievement image.
+        :return: an :class:`io.BytesIO` object co-relating the achievement image.
         """
         if len(achievement) > 30 and len(achievement) > 1:
             raise BadTextFormation()
@@ -75,7 +75,7 @@ class MCStatus(HTTPClient):
         :param text: text to display in the splash.
         :type text: :class:`str`
         :raises BadTextFormation: text passed is not between 1-30 characters
-        :return: an io.BytesIO object co-relating the splash text image.
+        :return: an :class:`io.BytesIO` object co-relating the splash text image.
         """
         if len(text) > 30 and len(text) < 1:
             raise BadTextFormation()

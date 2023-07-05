@@ -14,60 +14,54 @@ class ServerStatus:
     @property
     def host(self) -> str:
         """
-        The host of the server.
+        The host name of the server. (same as the IP address)\n
         Returns:
-        --------
-        str
+        :class:`str`
         """
         return self.resp["host"]
 
     @property
     def port(self) -> int:
         """
-        The port of the server.
+        The port the server is running on. (usually 25565)\n
         Returns:
-        --------
-        int or None
+        :class:`int` or :class:`None`
         """
         return self.resp["port"]
 
     @property
     def is_online(self) -> bool:
         """
-        Checks if the server is online.
+        Checks if the server is online.\n
         Returns:
-        --------
-        bool: True if the server is online, False otherwise.
+        :class:`bool`: True if the server is online, False otherwise.
         """
         return self.resp["online"]
 
     @property
     def latency(self) -> int:
         """
-        The latency of the server.
+        The latency of the server.\n
         Returns:
-        --------
-        int: latency in milliseconds, -1 if the server is offline.
+        :class:`int`: latency in milliseconds, -1 if the server is offline.
         """
         return self.resp["latency"]
 
     @property
     def max_players(self) -> int:
         """
-        The maximum players of the server.
+        The maximum players a server can accommodate.\n
         Returns:
-        --------
-        int or None
+        :class:`int` or :class:`None`
         """
         return self.resp["max_players"]
 
     @property
     def favicon(self) -> BytesIO:
         """
-        An io.BytesIO object co-relating the server icon
+        The server favicon
         Returns:
-        --------
-        io.BytesIO object or None
+        :class:`io.BytesIO` object or :class:`None`
         """
         if self.resp["favicon"]:
             data = bytes(self.resp["favicon"], "utf-8")
@@ -78,50 +72,45 @@ class ServerStatus:
     @property
     def version_info(self) -> dict:
         """
-        The version info of the server.
+        The descriptive version info of the server.\n
         Returns:
-        --------
-        dict[Any, Any]
+        :class:`dict[Any, Any]`
         """
         return self.resp["version"]
 
     @property
     def online_players(self) -> list:
         """
-        A list of dicts of the online players of the server and their UUID/XUID.
+        A list of dicts of the online players of the server and their UUID/XUID.\n
         Returns:
-        --------
-        list[dict[str, str]]
+        :class:`list[dict[str, str]]`
         """
         return self.resp["players"]
 
     @property
     def online_player_count(self) -> int:
         """
-        The online player count of the server.
+        The online player count of the server.\n
         Returns:
-        --------
-        int or None
+        :class:`int` or :class:`None`
         """
         return self.resp["online_players"]
 
     @property
     def clean_motd(self) -> str:
         """
-        The clean message of the day (MOTD) of the server.
+        The clean message of the day (MOTD) of the server. (without the color codes)\n
         Returns:
-        --------
-        str or None
+        :class:`str` or :class:`None`
         """
         return self.resp["motd_clean"]
 
     @property
     def motd(self) -> str:
         """
-        The message of the day (MOTD) of the server.
+        The message of the day (MOTD) of the server. (along with the colour codes)\n
         Returns:
-        --------
-        str or None
+        :class:`str` or :class:`None`
         """
         return self.resp["motd"]
 
@@ -130,8 +119,7 @@ class ServerStatus:
         """
         The game mode of the server.
         Returns:
-        --------
-        str or None
+        :class:`str` or :class:`None`
         """
         return self.resp["gamemode"]
 
@@ -140,7 +128,6 @@ class ServerStatus:
         """
         The game map of the server.
         Returns:
-        --------
-        str or None
+        :class:`str` or :class:`None`
         """
         return self.resp["map"]
