@@ -4,7 +4,7 @@ Welcome to minecraftstatus' documentation!
 
 .. automodule:: minecraftstatus
     :members:
-    :exclude-members: minecraftstatus.client.achievement minecraftstatus.client.MCStatus.splash_text minecraftstatus.client.MCStatus.get_server_card
+    :exclude-members: achievement, splash_text, get_server_card
     :undoc-members:
     :show-inheritance:
 
@@ -33,7 +33,7 @@ Welcome to minecraftstatus' documentation!
                 :height: 140px
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 10
    :caption: Contents:
 
 Indices and tables

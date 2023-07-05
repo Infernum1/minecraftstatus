@@ -21,21 +21,7 @@ class MCStatus(HTTPClient):
         :param ip_address: IP address of the server
         :type ip_address: :class:`str`
         :raises ServerNotFound: server not found or is offline
-        :return: a :class:`ServerStatus` class instance with the following attributes
-
-        Attributes
-        ----------
-        host: Returns the host of the server or `None` (:class:`str`)
-        port: Returns the port of the server or `None` (:class:`int`).
-        is_online: Returns :class:`True` if the server is online, :class:`False` otherwise (:class:`bool`).
-        latency: Returns the latency of the server (:class:`int`).
-        max_players: Returns the maximum players allowed in the server (:class:`int`).
-        online_players: Returns the current online players of the server (:class:`int`).
-        motd: Returns the message of the day of the server (:class:`str`).
-        clean_motd: Returns the **clean** message of the day of the server (:class:`str`).
-        favicon: Returns an io.BytesIO object co-relating the server favicon (:class:`BytesIO`).
-        game_map: Returns the game map of the server (:class:`str`).
-        game_mode: Returns the game mode of the server (:class:`str`).
+        :return: a :class:`ServerStatus` class instance
         """
 
         resp = await self._request("GET", base_url.format(f"mc/server/status/{ip_address}"))
