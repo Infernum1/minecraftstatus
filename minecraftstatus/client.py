@@ -50,8 +50,8 @@ class MCStatus(HTTPClient):
     async def get_server_card(self, ip_address: str, custom_server_name: str = ""):
         """
         :param ip_address: IP address of the server
-        :type ip_address: :class:`str`
         :param custom_server_name: A custom server name to be displayed on the server card
+        :type ip_address: :class:`str`
         :type custom_server_name: :class:`str`
         :raises `BadTextFormation`: text passed is not between 1-30 characters
         :return: an io.BytesIO object co-relating the server card image.
