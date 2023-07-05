@@ -5,7 +5,7 @@ import sys
 sys.path.insert(0, os.path.abspath(".."))
 
 project = "minecraftstatus"
-copyright = "2022, Infernum1"
+copyright = "2023, Infernum1"
 author = "Infernum1"
 
 release = "0.0.7"
