@@ -1,6 +1,24 @@
 
-Welcome to minecraftstatus' documentation!
-===========================================
+Installation
+=============
+
+
+To use `minecraftstatus <https://minecraftstatus.readthedocs.io/en/latest/>`_, install it using `pip <https://pypi.org/project/pip/>`_
+
+.. code-block::
+   :linenos:
+
+   (.venv) $ pip install minecraftstatus
+
+or install it from the `github repo <https://github.com/Infernum1/minecraftstatus>`_ using `git <https://git-scm.com>`_ with the following command
+
+.. code-block::
+   :linenos:
+
+   (.venv) $ pip install -U git+https://github.com/Infernum1/minecraftstatus
+
+Documentation
+=============
 
 .. automodule:: minecraftstatus
     :members:
