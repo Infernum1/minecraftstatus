@@ -3,7 +3,7 @@ Installation
 =============
 
 
-To use `minecraftstatus <https://minecraftstatus.readthedocs.io/en/latest/>`_, install it using `pip <https://pypi.org/project/pip/>`_
+To use `minecraftstatus <https://minecraftstatus.readthedocs.io/en/stable/>`_, install it using `pip <https://pypi.org/project/pip/>`_
 
 .. code-block::
    :linenos:
@@ -16,6 +16,53 @@ or install it from the `github repo <https://github.com/Infernum1/minecraftstatu
    :linenos:
 
    (.venv) $ pip install -U git+https://github.com/Infernum1/minecraftstatus
+
+Examples
+========
+An example of the `get_server <https://minecraftstatus.readthedocs.io/en/stable/#minecraftstatus.MCStatus>`_ feature
+
+.. code-block::
+   :linenos:
+
+    import asyncio
+    import minecraftstatus
+
+    client = minecraftstatus.MCStatus()
+
+
+    async def main(ip_address: str):
+        server = await client.get_server(ip_address)
+        print(server.motd)
+        print(server.max_players)
+        print(server.max_players)
+        print(server.version_info)  # and many more attributes!
+
+
+    if __name__ == "__main__":
+        asyncio.run(main("mc.hypixel.net"))
+
+
+or the `get_server_card <https://minecraftstatus.readthedocs.io/en/stable/#minecraftstatus.client.MCStatus.get_server_card>`_ feature
+
+.. code-block::
+   :linenos:
+
+    import asyncio
+    import minecraftstatus
+
+    client = minecraftstatus.MCStatus()
+
+
+    async def main(ip_address: str):
+        image = await client.get_server_card(ip_address, custom_server_name="An Awesome Minecraft Server")
+        print(await image.getvalue())
+
+
+    if __name__ == "__main__":
+        asyncio.run(main("mc.hypixel.net"))
+
+
+Take a look at all the examples on the `github <https://github.com/Infernum1/minecraftstatus/tree/stable/examples>`_
 
 Documentation
 =============

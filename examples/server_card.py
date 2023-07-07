@@ -12,4 +12,4 @@ async def main(ip_address: str):
 
 
 if __name__ == "__main__":
-    asyncio.run(main("Also check out terarria"))
+    asyncio.run(main("mc.hypixel.net"))
