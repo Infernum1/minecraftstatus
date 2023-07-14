@@ -8,7 +8,7 @@ client = minecraftstatus.MCStatus()
 
 async def main(ip_address: str):
     image = await client.get_server_card(ip_address, custom_server_name="An Awesome Minecraft Server")
-    print(await image.getvalue())
+    print(image.getvalue())
 
 
 if __name__ == "__main__":
