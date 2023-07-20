@@ -16,10 +16,6 @@ class MCStatus(HTTPClient):
     def __init__(self):
         super().__init__()
 
-    """
-    The main MCStatus class.
-    """
-
     async def __aenter__(self):
         await self.open()
         return self
