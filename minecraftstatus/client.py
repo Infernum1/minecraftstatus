@@ -1,7 +1,7 @@
 from io import BytesIO
 
 from .server_status import ServerStatus
-from .http import HTTPClient, APIClient
+from .http import HTTPClient
 from .errors import BadTextFormation, ServerNotFound
 
 __all__ = ("MCStatus", "ServerNotFound", "BadTextFormation")  # docs don't properly work without this

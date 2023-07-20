@@ -2,13 +2,14 @@
 
 import asyncio
 import minecraftstatus
-
-client = minecraftstatus.MCStatus()
+from minecraftstatus import MCStatus
 
 
 async def main(ip_address: str):
-    image = await client.get_server_card(ip_address, custom_server_name="An Awesome Minecraft Server")
-    print(image.getvalue())
+    async with MCStatus() as client:
+        server = await client.get_server(ip_address)
+
+    print(server.host)
 
 
 if __name__ == "__main__":
