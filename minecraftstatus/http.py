@@ -22,10 +22,3 @@ class HTTPClient:
             return resp
 
         raise RuntimeError("There was no open session found. Call .open() or use this class as a context manager")
-
-    async def __aenter__(self):
-        await self.open()
-        return self
-
-    async def __aexit__(self, *args, **kwargs):
-        await self.close()

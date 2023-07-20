@@ -1,7 +1,7 @@
 from io import BytesIO
 
 from .server_status import ServerStatus
-from .http import HTTPClient
+from .http import HTTPClient, APIClient
 from .errors import BadTextFormation, ServerNotFound
 
 __all__ = ("MCStatus", "ServerNotFound", "BadTextFormation")  # docs don't properly work without this
@@ -13,8 +13,19 @@ class MCStatus(HTTPClient):
     The main MCStatus class.
     """
 
-    def __init__(self) -> None:
-        HTTPClient.__init__(self)
+    def __init__(self):
+        super().__init__()
+
+    """
+    The main MCStatus class.
+    """
+
+    async def __aenter__(self):
+        await self.open()
+        return self
+
+    async def __aexit__(self, *args, **kwargs):
+        await self.close()
 
     async def get_server(self, ip_address: str):
         """
@@ -24,9 +35,8 @@ class MCStatus(HTTPClient):
         :return: a :class:`ServerStatus` class instance
         """
 
-        async with HTTPClient() as client:
-            resp = await client._request("GET", base_url.format(f"mc/server/status/{ip_address}"))
-            data = await resp.json()
+        resp = await self._request("GET", base_url.format(f"mc/server/status/{ip_address}"))
+        data = await resp.json()
 
         if data["online"] is False:
             raise ServerNotFound(ip_address)
@@ -35,6 +45,7 @@ class MCStatus(HTTPClient):
 
     async def get_server_card(self, ip_address: str, custom_server_name: str = ""):
         """
+        **This is a method of the MCStatus class**\n
         :param ip_address: IP address of the server
         :param custom_server_name: A custom server name to be displayed on the server card
         :type ip_address: :class:`str`
@@ -48,16 +59,15 @@ class MCStatus(HTTPClient):
         if len(ip_address) > 30 and len(ip_address) < 1:
             raise BadTextFormation()
 
-        async with HTTPClient() as client:
-            resp = await client._request(
-                "GET", base_url.format(f"mc/server/status/{ip_address}/image?customName={custom_server_name}")
-            )
-            image = BytesIO(await resp.read())
-
+        res = await self._request(
+            "GET", base_url.format(f"mc/server/status/{ip_address}/image?customName={custom_server_name}")
+        )
+        image = BytesIO(await res.read())
         return image
 
     async def achievement(self, achievement: str):
         """
+        **This is a method of the MCStatus class**
         :param achievement: name of the achievement to display.
         :type achievement: :class:`str`
         :raises BadTextFormation: text passed is not between 1-30 characters
@@ -66,14 +76,14 @@ class MCStatus(HTTPClient):
         if len(achievement) > 30 and len(achievement) > 1:
             raise BadTextFormation()
 
-        async with HTTPClient() as client:
-            resp = await client._request("GET", base_url.format(f"mc/image/achievement/{achievement}"))
-            image = BytesIO(await resp.read())
+        res = await self._request("GET", base_url.format(f"mc/image/achievement/{achievement}"))
+        image = BytesIO(await res.read())
 
         return image
 
     async def splash_text(self, text: str):
         """
+        **This is a method of the MCStatus class**
         :param text: text to display in the splash.
         :type text: :class:`str`
         :raises BadTextFormation: text passed is not between 1-30 characters
@@ -82,8 +92,7 @@ class MCStatus(HTTPClient):
         if len(text) > 30 and len(text) < 1:
             raise BadTextFormation()
 
-        async with HTTPClient() as client:
-            resp = await client._request("GET", base_url.format(f"mc/image/splash/{text}"))
-            image = BytesIO(await resp.read())
+        res = await self._request("GET", base_url.format(f"mc/image/splash/{text}"))
+        image = BytesIO(await res.read())
 
         return image
