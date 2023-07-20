@@ -2,7 +2,7 @@ from .client import *
 from .errors import *
 from .server_status import *
 
-__version__ = "0.0.7"
+__version__ = "0.0.9"
 __author__ = "Infernum1"
 __title__ = "minecraftstatus"
 __copyright__ = "Copyright (c) 2023 Infernum1"
