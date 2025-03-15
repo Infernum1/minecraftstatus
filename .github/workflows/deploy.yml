@@ -3,8 +3,7 @@ name: Deploy MkDocs to GitHub Pages
 on:
   push:
     branches:
-      - latest  # Change this if your default branch is different
-
+      - latest
 permissions:
   contents: read
   pages: write
@@ -30,9 +29,9 @@ jobs:
         run: mkdocs build
 
       - name: Upload GitHub Pages Artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: site  # The default output folder of mkdocs build
+          path: site 
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
