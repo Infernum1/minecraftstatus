@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - latest
+
 permissions:
   contents: read
   pages: write
@@ -25,13 +26,5 @@ jobs:
       - name: Install Dependencies
         run: pip install mkdocs-material mkdocstrings mkdocstrings-python mkdocs-minify-plugin mkdocs-awesome-pages-plugin
 
-      - name: Build MkDocs Site
-        run: mkdocs build
-
-      - name: Upload GitHub Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site 
-
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+        run: mkdocs gh-deploy --force
