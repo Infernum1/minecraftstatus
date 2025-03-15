@@ -144,8 +144,8 @@ class MCStatus(HTTPClient):
             text (str): The text to display (must be between 1 and 30 characters).
 
         Returns:
-            BytesIO: A byte-stream object containing the splash text image.    
-            
+            BytesIO: A byte-stream object containing the splash text image.
+
         Raises:
             BadTextFormation: If the text does not meet the required length.
 
