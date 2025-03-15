@@ -24,7 +24,15 @@ jobs:
           python-version: '3.10'
 
       - name: Install Dependencies
-        run: pip install mkdocs-material mkdocstrings mkdocstrings-python
+        run: pip install mkdocs-material mkdocstrings mkdocstrings-python mkdocs-minify-plugin mkdocs-awesome-pages-plugin
+
+      - name: Build MkDocs Site
+        run: mkdocs build
+
+      - name: Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: site  # The default output folder of mkdocs build
 
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+        uses: actions/deploy-pages@v2
