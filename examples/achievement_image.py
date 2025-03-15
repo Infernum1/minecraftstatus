@@ -1,13 +1,13 @@
 # Getting a custom achievement image.
 
 import asyncio
-import minecraftstatus
-
-client = minecraftstatus.MCStatus()
+from minecraftstatus import MCStatus
 
 
 async def main(achievement: str):
-    image = await client.achievement(achievement)
+    async with MCStatus() as client:
+        image = await client.achievement(achievement)
+
     print(image.getvalue())
 
 

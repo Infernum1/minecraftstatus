@@ -1,14 +1,14 @@
 # Getting info on a Minecraft Server.
 
 import asyncio
-import minecraftstatus
-
-client = minecraftstatus.MCStatus()
+from minecraftstatus import MCStatus
 
 
 async def main(ip_address: str):
-    server = await client.get_server(ip_address)
-    print(server.motd)
+    async with MCStatus() as client:
+        server = await client.get_server(ip_address)
+
+    print(server.clean_motd)
     print(server.max_players)
     print(server.max_players)
     print(server.version_info)  # and many more attributes!

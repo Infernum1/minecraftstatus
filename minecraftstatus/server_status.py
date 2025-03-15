@@ -1,133 +1,141 @@
 from io import BytesIO
 
-__all__ = ("ServerStatus",)
+all = ("ServerStatus",)
 
 
 class ServerStatus:
-    def __init__(self, resp):
-        self.resp = resp
-
-    """
-    The ServerStatus class is used to return the data through :class:`MCStatus`.
-    """
+    def __init__(self, data: dict) -> None:
+        self.data = data
 
     @property
     def host(self) -> str:
         """
-        The host name of the server. (same as the IP address)\n
+        Get the host name of the server
+
         Returns:
-        :class:`str`
+            str: The host name (same as the IP address)
         """
-        return self.resp["host"]
+        return self.data.get("host", "")
 
     @property
     def port(self) -> int:
         """
-        The port the server is running on. (usually 25565)\n
+        Get the port the server is running on
+
         Returns:
-        :class:`int` or :class:`None`
+            int: The port number, -1 if not available
         """
-        return self.resp["port"]
+        return self.data.get("port", -1)
 
     @property
     def is_online(self) -> bool:
         """
-        Checks if the server is online.\n
+        Check if the server is online
+
         Returns:
-        :class:`bool`: True if the server is online, False otherwise.
+            bool: True if the server is online, False otherwise
         """
-        return self.resp["online"]
+        return self.data.get("online", False)
 
     @property
     def latency(self) -> int:
         """
-        The latency of the server.\n
+        Get the latency of the server
+
         Returns:
-        :class:`int`: latency in milliseconds, -1 if the server is offline.
+            int: Latency in milliseconds, -1 if the server is offline
         """
-        return self.resp["latency"]
+        return self.data.get("latency", -1)
 
     @property
     def max_players(self) -> int:
         """
-        The maximum players a server can accommodate.\n
+        Get the maximum players the server can accommodate
+
         Returns:
-        :class:`int` or :class:`None`
+            int: The maximum number of players
         """
-        return self.resp["max_players"]
+        return self.data.get("max_players", 0)
 
     @property
     def favicon(self) -> BytesIO:
         """
-        The server favicon
+        Get the server favicon
+
         Returns:
-        :class:`io.BytesIO` object or :class:`None`
+            BytesIO: An io.BytesIO object containing the favicon, or None if not available
         """
-        if self.resp["favicon"]:
-            data = bytes(self.resp["favicon"], "utf-8")
-            favicon = BytesIO(data)
-            return favicon
+        favicon_data = self.data.get("favicon")
+        if favicon_data:
+            return BytesIO(favicon_data.encode("utf-8"))
         return None
 
     @property
     def version_info(self) -> dict:
         """
-        The descriptive version info of the server.\n
+        Get the descriptive version info of the server
+
         Returns:
-        :class:`dict[Any, Any]`
+            dict: The version information
         """
-        return self.resp["version"]
+        return self.data.get("version", {})
 
     @property
     def online_players(self) -> list:
         """
-        A list of dicts of the online players of the server and their UUID/XUID.\n
+        Get a list of online players on the server
+
         Returns:
-        :class:`list[dict[str, str]]`
+            list: A list of dictionaries containing player information
         """
-        return self.resp["players"]
+        return self.data.get("players", [])
 
     @property
     def online_player_count(self) -> int:
         """
-        The online player count of the server.\n
+        Get the online player count of the server
+
         Returns:
-        :class:`int` or :class:`None`
+            int: The number of online players
         """
-        return self.resp["online_players"]
+        return self.data.get("online_players", 0)
 
     @property
     def clean_motd(self) -> str:
         """
-        The clean message of the day (MOTD) of the server. (without the color codes)\n
+        Get the clean Message Of The Day (MOTD) of the server
+
         Returns:
-        :class:`str` or :class:`None`
+            str: The clean MOTD (without color codes)
         """
-        return self.resp["motd_clean"]
+        return self.data.get("motd_clean", "")
 
     @property
     def motd(self) -> str:
         """
-        The message of the day (MOTD) of the server. (along with the colour codes)\n
+        Get the message of the day (MOTD) of the server
+
         Returns:
-        :class:`str` or :class:`None`
+            str: The MOTD (with color codes)
         """
-        return self.resp["motd"]
+        return self.data.get("motd", "")
 
     @property
     def gamemode(self) -> str:
         """
-        The game mode of the server.
+        Get the game mode of the server
+
         Returns:
-        :class:`str` or :class:`None`
+            str: The game mode
         """
-        return self.resp["gamemode"]
+        return self.data.get("gamemode", "")
 
     @property
     def game_map(self) -> str:
         """
-        The game map of the server.
+        Get the game map of the server
+
         Returns:
-        :class:`str` or :class:`None`
+            str: The game map
         """
-        return self.resp["map"]
+        return self.data.get("map", "")

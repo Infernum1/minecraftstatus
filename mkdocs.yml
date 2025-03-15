@@ -1,0 +1,77 @@
+site_name: MinecraftStatus Documentation
+site_description: An asynchronous wrapper for the Minecraft server status API.
+site_author: Infernum1
+
+theme:
+  name: material
+  favicon: images/favicon.ico
+  logo: images/favicon.png
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - toc.integrate
+    - instant
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - navigation.footer
+    - search.highlight
+    - search.share
+    - search.suggest
+
+  palette:
+    # Light theme
+    - scheme: default
+      primary: '#1e3a5f'  # A refined navy blue for primary elements
+      accent: '#00bcd4'   # A vibrant teal accent
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark theme
+    - scheme: slate
+      primary: '#0a192f'  # A deep navy/dark blue shade
+      accent: '#64ffda'   # A contrasting teal accent
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+repo_url: https://github.com/Infernum1/minecraftstatus  # Replace with your repo URL
+repo_name: GitHub
+
+nav:
+  - Home: index.md
+  - API Reference:
+      - Client: api/client.md
+      - Errors: api/errors.md
+      - Server Status: api/server_status.md
+
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: true
+            merge_init_into_class: true
+            show_private_members: false
+            show_magic_methods: false
+  - minify:
+      minify_html: true
+  - awesome-pages
+  - search  # Adds a full-text search functionality
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      permalink: true

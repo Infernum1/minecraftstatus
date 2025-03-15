@@ -1,13 +1,13 @@
 # Getting a custom splash text image.
 
 import asyncio
-import minecraftstatus
-
-client = minecraftstatus.MCStatus()
+from minecraftstatus import MCStatus
 
 
 async def main(text: str):
-    image = await client.splash_text(text)
+    async with MCStatus() as client:
+        image = await client.splash_text(text)
+
     print(image.getvalue())
 
 

@@ -1,11 +1,19 @@
 [tool.poetry]
 name = "minecraftstatus"
-version = "0.0.9"
+version = "0.1.0"
 description = "minecraftstatus is an asynchronous wrapper for https://api.iapetus11.me."
 authors = ["Infernum1"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/Infernum1/minecraftstatus"
+documentation = "https://infernum1.github.io/minecraftstatus/"
+homepage = "https://github.com/Infernum1/minecraftstatus"
+keywords = ["minecraft", "api", "wrapper", "asynchronous", "server"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 
 [tool.poetry.dependencies]
 python = ">3.6"

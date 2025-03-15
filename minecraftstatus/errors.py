@@ -1,4 +1,4 @@
-__all__ = (
+all = (
     "ServerNotFound",
     "BadTextFormation",
 )
@@ -6,13 +6,10 @@ __all__ = (
 
 class ServerNotFound(Exception):
     """
-    Exception raised when a server is not found or is offline. Has the following attribute:
+    Exception raised when a server is not found or is offline.
 
-    **Note:** the error is :class:`minecraftstatus.errors.ServerNotFound`. Due to an issue, it's incorrectly shown in the documentation above.
-
-    Attributes
-    ----------
-    address: (:class:`str`)the address of the server passed.
+    Attributes:
+        address (str): The address of the server passed.
     """
 
     def __init__(self, address: str):
@@ -23,8 +20,6 @@ class ServerNotFound(Exception):
 class BadTextFormation(Exception):
     """
     Exception raised when the characters passed are not between 1 and 30 for some endpoints.
-
-    **Note:** the error is :class:`minecraftstatus.errors.BadTextFormation`. Due to an issue, it's incorrectly shown in the documentation above.
     """
 
     def __init__(self):

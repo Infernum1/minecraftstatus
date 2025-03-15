@@ -1,0 +1,2 @@
+::: minecraftstatus.client.MCStatus
+
