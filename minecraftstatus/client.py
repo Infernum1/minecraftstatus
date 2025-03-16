@@ -93,7 +93,7 @@ class MCStatus(HTTPClient):
             ```
 
         ???+ example "Server Card Example"
-            ![Server Card Example](/images/server_card.png)
+            ![Server Card Example](../images/server_card.png)
 
         """
         server_name = custom_server_name or ip_address
@@ -126,7 +126,7 @@ class MCStatus(HTTPClient):
             ```
 
         ???+ example "Achievement Image Example"
-            ![Achievement Image Example](/images/achievement.png)
+            ![Achievement Image Example](../images/achievement.png)
 
         """
         if not (1 <= len(achievement_text) <= 30):
@@ -158,7 +158,7 @@ class MCStatus(HTTPClient):
             ```
 
         ???+ example "Splash Text Example"
-            ![Splash Text Example](/images/splash_text.png)
+            ![Splash Text Example](../images/splash_text.png)
         """
         if not (1 <= len(text) <= 30):
             raise BadTextFormation()

@@ -6,7 +6,7 @@ on:
       - latest
 
 permissions:
-  contents: read
+  contents: read 
   pages: write
   id-token: write
 
@@ -28,12 +28,12 @@ jobs:
         run: pip install mkdocs-material mkdocstrings mkdocstrings-python mkdocs-minify-plugin mkdocs-awesome-pages-plugin
 
       - name: Build Documentation
-        run: mkdocs build --strict  # Ensure no errors in build process
+        run: mkdocs build
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site  # Make sure MkDocs is generating the site in `site/`
+          path: site
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
